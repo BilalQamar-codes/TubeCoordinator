@@ -1,7 +1,9 @@
-import React from 'react'
-import './LoginSignup.scss'
+import React, { useState } from 'react';
+import './LoginSignup.scss';
 
 function LoginSignup() {
+  const [selectedRole, setSelectedRole] = useState('');
+
   return (
     <div className='login-signup'>
       <h1>Login or Signup</h1>
@@ -14,19 +16,29 @@ function LoginSignup() {
           Password:
           <input type='password' name='password' />
         </label>
-        <label className='role-group'>
-          Role:
-          <input type="radio" name="role" id="admin" />
-          <label htmlFor="admin">Admin</label>
-          <input type="radio" name="role" id="editor" />
-          <label htmlFor="editor">Editor</label>
-        </label>
+        
+        <div className='role-group'>
+          <button 
+            type="button" 
+            className={`role-option ${selectedRole === 'admin' ? 'active' : ''}`} 
+            onClick={() => setSelectedRole('admin')}
+          >
+            Admin
+          </button>
+          <button 
+            type="button" 
+            className={`role-option ${selectedRole === 'editor' ? 'active' : ''}`} 
+            onClick={() => setSelectedRole('editor')}
+          >
+            Editor
+          </button>
+        </div>
+
         <button type='submit'>Login</button>
         <button type='submit'>Signup</button>
       </form>
-      
     </div>
-  )
+  );
 }
 
-export default LoginSignup
+export default LoginSignup;
