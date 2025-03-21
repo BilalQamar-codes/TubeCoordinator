@@ -1,0 +1,174 @@
+.dashboard-container {
+    display: flex;
+    min-height: 100vh;
+    background: #f4f4f4;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 250px;
+    background: #2c3e50;
+    padding: 1.5rem;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sidebar h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #ecf0f1; /* Improved contrast */
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    width: 100%;
+}
+
+.sidebar li {
+    padding: 0.8rem;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: background 0.3s, color 0.3s;
+    color: #ecf0f1; /* Improved visibility */
+}
+
+.sidebar li:hover, .sidebar .active {
+    background: #34495e;
+    color: #ffffff;
+}
+
+/* Dashboard Main Content */
+.dashboard {
+    flex-grow: 1;
+    padding: 2rem;
+    text-align: center;
+}
+
+h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+    color: #333;
+}
+
+h2 {
+    font-size: 1.5rem;
+    color: #444;
+    margin-bottom: 1rem;
+}
+
+/* Video List */
+.video-list {
+    margin-top: 1rem;
+}
+
+.video-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: white;
+    margin-bottom: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.video-item:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Status Indicators */
+.status {
+    padding: 0.4rem 0.8rem;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    color: white;
+}
+
+.status.pending {
+    background: #f1c40f;
+}
+
+.status.approved {
+    background: #27ae60;
+}
+
+/* Approve Button */
+.approve-btn {
+    background: #007bff;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+}
+
+.approve-btn:hover {
+    background: #0056b3;
+    transform: scale(1.05);
+}
+
+/* Upload Button */
+.upload-btn {
+    background: #28a745;
+    color: white;
+    padding: 0.75rem;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    margin-bottom: 1rem;
+}
+
+.upload-btn:hover {
+    background: #218838;
+    transform: scale(1.05);
+}
+
+/* Video Details Panel */
+.video-details {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 350px;
+}
+
+.video-details h2 {
+    margin-bottom: 1rem;
+}
+
+.video-details p {
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.close-btn {
+    background: #e74c3c;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    margin-top: 1rem;
+}
+
+.close-btn:hover {
+    background: #c0392b;
+    transform: scale(1.05);
+}

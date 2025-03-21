@@ -1,30 +1,48 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import './LoginSignup.scss';
 
 function LoginSignup() {
   const [selectedRole, setSelectedRole] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const navigate = useNavigate();
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+
+    if (!selectedRole) {
+      alert('Please select a role.');
+      return;
+    }
+
+    // Store role in localStorage for session persistence
+    localStorage.setItem('userRole', selectedRole);
+
+    // Redirect user to the appropriate dashboard
+    navigate(`/dashboard/${selectedRole}`);
+  };
 
   return (
     <div className='login-signup'>
-      <h1>Login or Signup</h1>
-      <form>
+      <h1>Login</h1>
+      <form className='login-form' onSubmit={handleLogin}>
         <label>
           Email:
-          <input type='email' name='email' />
+          <input type='email' value={email} onChange={(e) => setEmail(e.target.value)} required />
         </label>
         <label>
           Password:
-          <input type='password' name='password' />
+          <input type='password' value={password} onChange={(e) => setPassword(e.target.value)} required />
         </label>
         
         <div className='role-group'>
           <button 
             type="button" 
-            className={`role-option ${selectedRole === 'admin' ? 'active' : ''}`} 
-            onClick={() => setSelectedRole('admin')}
+            className={`role-option ${selectedRole === 'owner' ? 'active' : ''}`} 
+            onClick={() => setSelectedRole('owner')}
           >
-            Admin
+            Owner
           </button>
           <button 
             type="button" 
@@ -36,7 +54,6 @@ function LoginSignup() {
         </div>
 
         <button type='submit'>Login</button>
-        <Link to="/signup" className="signup-button">Signup</Link>
       </form>
     </div>
   );
