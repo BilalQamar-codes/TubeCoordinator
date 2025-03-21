@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import './LoginSignup.scss';
 
 function LoginSignup() {
@@ -35,7 +36,7 @@ function LoginSignup() {
         </div>
 
         <button type='submit'>Login</button>
-        <button type='submit'>Signup</button>
+        <Link to="/signup" className="signup-button">Signup</Link>
       </form>
     </div>
   );
